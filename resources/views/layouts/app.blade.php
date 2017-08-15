@@ -53,6 +53,9 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        @role('Admin') {{-- Laravel-permission blade helper --}}
+                                            <a href="#"><i class="fa fa-btn fa-unlock"></i>Admin</a>
+                                        @endrole
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -70,6 +73,17 @@
                 </div>
             </div>
         </nav>
+        @if(Session::has('flash_message'))
+            <div class="container">
+                <div class="alert alert-success"><em>{!! session('flash_message') !!}</em></div>
+            </div>
+        @endif
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @include('errors.list')
+            </div>
+        </div>
 
         @yield('content')
     </div>
