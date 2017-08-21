@@ -15,7 +15,7 @@ class PermissionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'isAdmin');
+        $this->middleware(['auth', 'isAdmin']);
     }
     
     /**
@@ -72,7 +72,7 @@ class PermissionController extends Controller
         }
 
         return redirect()->route('permissions.index')
-            ->with('flash_message', 'Permission '.$permission->name.' added.')
+            ->with('flash_message', 'Permission '.$permission->name.' added.');
     }
 
     /**
@@ -118,7 +118,7 @@ class PermissionController extends Controller
         $permission->fill($input)->save();
 
         return redirect()->route('permission.index')
-            ->with('flash_message', 'Permission '.$permission->name.' updated.')
+            ->with('flash_message', 'Permission '.$permission->name.' updated.');
     }
 
     /**
@@ -139,6 +139,6 @@ class PermissionController extends Controller
         $permission->delete();
 
         return redirect()->route('permissions.index')
-            ->with('flash_message', 'Permission deleted!.').
+            ->with('flash_message', 'Permission deleted!.');
     }
 }

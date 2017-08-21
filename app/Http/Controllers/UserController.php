@@ -27,7 +27,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = Users::all();
+        $users = User::all();
 
         return view('users.index')->with('users', $users);
     }
@@ -65,7 +65,7 @@ class UserController extends Controller
         if (isset($roles)) {
             foreach ($roles as $role) {
                 $role_r = Role::where('id', '=', $role)->firstOrFail();
-                $user = assignRole($role_r);
+                $user->assignRole($role_r);
             }
         }
 
@@ -126,7 +126,7 @@ class UserController extends Controller
         }
 
         return redirect()->route('users.index')
-            ->with('flash_message', 'User succesfully edited.')
+            ->with('flash_message', 'User succesfully edited.');
     }
 
     /**

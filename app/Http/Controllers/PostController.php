@@ -51,7 +51,7 @@ class PostController extends Controller
         $post = Post::create($request->only('title', 'body'));
 
         return redirect()->route('posts.index')
-            ->with('flash_message', 'Article, '. $post->title .' created')
+            ->with('flash_message', 'Article, '. $post->title .' created');
     }
 
     /**
@@ -100,7 +100,7 @@ class PostController extends Controller
         $post->save();
 
         return redirect()->route('posts.show', $post->id)
-            ->with('flash_message', 'Article, '. $post->title .' updated')
+            ->with('flash_message', 'Article, '. $post->title .' updated');
 
     }
 
